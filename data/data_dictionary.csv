@@ -1,0 +1,13 @@
+field_name,data_type,unit,description,source,required,status
+experiment_id,string,none,Unique identifier for each experimental run,Experiment logging process,yes,proposed
+timestamp,timestamp,documented time unit,Time associated with a sensor measurement,Acquisition system,yes,hardware dependent
+source,string,none,Indicates whether the data is simulated or measured,Experiment metadata,yes,proposed
+sensor_readings,numeric or structured,as defined by sensor,Raw measurements from the selected road sensing hardware,Selected road sensing hardware,yes,hardware dependent
+vehicle_motion,numeric or structured,as defined by sensor,Vehicle motion measurements if an IMU or equivalent is included,Motion sensor if selected,no,hardware dependent
+vehicle_speed,numeric or null,m/s,Measured or estimated vehicle speed with source documented,Selected speed measurement method,no,hardware dependent
+gps_lat,numeric or null,degrees,Latitude when valid location data is available,GPS/GNSS if selected,no,hardware dependent
+gps_lon,numeric or null,degrees,Longitude when valid location data is available,GPS/GNSS if selected,no,hardware dependent
+water_depth,numeric or null,mm,Water depth measured using the defined experimental method,Controlled experimental setup,no,protocol pending
+road_condition,string,none,Known physical road condition used during the experiment,Controlled test setup,yes,protocol pending
+ground_truth_label,string or null,none,Reference hazard class assigned using documented criteria,Ground truth labelling procedure,no,protocol pending
+data_quality,string or structured flags,none,Indicates whether measurements are valid degraded or unavailable,Data validation process,yes,proposed
