@@ -1,19 +1,33 @@
 # RoadSight — Potential Solutions and Risk Mitigation
 
-**Status:** Proposed mitigation measures pending implementation and testing.
 
-| Risk | Proposed mitigation | Verification method |
+
+## 1. Risk Assessment and Mitigation
+
+| Risk | Proposed Mitigation | Verification Method |
 |---|---|---|
-| Unreliable submerged-road sensing | Conduct sensor feasibility tests before finalizing the sensing design. | Compare readings against known road profiles under controlled water conditions. |
-| Water-surface interference | Evaluate sensor readings under different water depths and surface conditions. | Record and compare repeated measurements. |
+| Unreliable submerged-road sensing | Conduct sensor feasibility tests before finalising the sensing design. | Compare measurements against known road profiles under controlled water conditions. |
+| Water-surface interference | Evaluate sensing performance under different water depths and surface conditions. | Record and compare repeated measurements. |
 | Vehicle motion and vibration | Develop a stable mounting arrangement and investigate motion-related measurement changes. | Compare stationary and controlled-motion test results. |
-| Poor data quality | Validate readings and flag missing, stale or invalid data as `UNKNOWN`. | Inject invalid inputs and verify safe status handling. |
-| False positives and missed hazards | Develop and refine classification criteria using labelled test data. | Measure false-positive rate and missed-hazard rate on test scenarios. |
-| Water, mud and vibration exposure | Design appropriate enclosure and mounting protection. | Inspect and test the assembly under controlled exposure conditions. |
-| Excessive warning latency | Optimize local processing and keep the warning path independent of network availability. | Measure end-to-end sensor-to-warning latency on the Raspberry Pi. |
+| Poor data quality | Validate incoming readings and classify missing, stale, or invalid data as `UNKNOWN`. | Inject invalid inputs and verify status handling. |
+| False positives and missed hazards | Develop and refine classification criteria using labelled test data. | Measure false-positive and missed-hazard rates across test scenarios. |
+| Water, mud, and vibration exposure | Design suitable enclosure and mounting protection. | Inspect and test the assembly under controlled exposure conditions. |
+| Excessive warning latency | Optimise local processing and keep the warning path independent of network availability. | Measure end-to-end sensor-to-warning latency on the Raspberry Pi. |
 
-## Priority
+## 2. Priority Risk: Sensor Feasibility
 
-The first priority is sensor feasibility. If the selected sensing arrangement cannot provide useful evidence of submerged-road irregularities, document the limitation and reconsider the sensing approach before committing to full fabrication.
+The first priority is determining whether the proposed sensing arrangement can produce useful, repeatable measurements of submerged-road irregularities.
 
-**Safety principle:** `UNKNOWN` must never be treated as `NORMAL`. All mitigations remain proposed until supported by documented test results.
+The team will compare sensor-derived measurements against known road profiles under controlled water conditions.
+
+If the sensing arrangement cannot provide reliable evidence, the limitation will be documented and the sensing approach reconsidered before committing to full fabrication.
+
+## 3. Safety Principle
+
+`UNKNOWN` must never be treated as `NORMAL`.
+
+When data is missing, invalid, or insufficient, the system should represent uncertainty rather than issue an unsupported safe-road assessment.
+
+## 4. Current Status
+
+All mitigations are proposed. Their effectiveness remains unverified until supported by documented test results.
